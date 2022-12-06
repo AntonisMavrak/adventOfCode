@@ -2257,19 +2257,20 @@ foreach ($final as $elf){
     }
     $i++;
 }
-$first = max($countArray);
-$second = $countArray[1];
-$third = $countArray[2];
+$first = (int)max($countArray);
+$second = (int)$countArray[1];
+$third = (int)$countArray[2];
 for ($i = 3, $iMax = count($countArray); $i<= $iMax; $i++){
     if ($countArray[$i]<$first && $countArray[$i]>=$third && $countArray[$i]>$second){
         $third = $second;
-        $second = $countArray[$i];
+        $second = (int)$countArray[$i];
     }
     if ($countArray[$i]<$second && $countArray>=$third){
-        $third = $countArray[$i];
+        $third = (int)$countArray[$i];
     }
 }
 echo "<pre>";
-print_r($first . " " . $second . " " . $third . "<br>");
-print_r($first + $second + $third);
+print_r("First: " . $first . "<br>" . "Second: " . $second . "<br>" . "Thrird: " . $third . "<br>");
+echo "-------------- <br>";
+print_r("Total: " . ($first + $second + $third));
 echo "</pre>";
