@@ -1,5 +1,8 @@
 <?php
-
+echo "<pre>";
+echo "<h2>Day 1</h2>";
+// --------------------------------------------
+// Part 1
 $text =
     "62797
 
@@ -2269,8 +2272,10 @@ for ($i = 3, $iMax = count($countArray); $i<= $iMax; $i++){
         $third = (int)$countArray[$i];
     }
 }
-echo "<pre>";
 print_r("First: " . $first . "<br>" . "Second: " . $second . "<br>" . "Thrird: " . $third . "<br>");
 echo "-------------- <br>";
 print_r("Total: " . ($first + $second + $third));
+
+// --------------------------------------------
+// End
 echo "</pre>";

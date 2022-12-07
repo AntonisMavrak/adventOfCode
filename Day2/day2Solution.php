@@ -1,5 +1,6 @@
 <?php
-
+echo "<pre>";
+echo "<h2>Day 2</h2>";
 /**
  * Rules
  *
@@ -9,19 +10,22 @@
  * C: Scissors
  *
  * Me:
- * X: Rock (1)
- * Y: Paper (2)
- * Z: Scissors (3)
+ * X: Rock (1) / Lose
+ * Y: Paper (2) / Draw
+ * Z: Scissors (3) / Win
  *
  * Outcome:
  * Lost: 0
  * Draw: 3
  * Won: 6
  */
+
+// --------------------------------------------
+// Part 1
 $lines = file('input.txt');
 $all = [];
 $count = 0;
-echo "<pre>";
+
 foreach ($lines as $key=>$line){
     $temp = explode(" ", $line);
     $all[$key]["Opponent"] = str_replace(" ", "", $temp[0]);
@@ -136,5 +140,6 @@ foreach ($all as $key=>$match){
     $sum += $all[$key]["result"];
 }
 echo "Sum of all matches, but correct: " . $sum;
-
+// --------------------------------------------
+// End
 echo "</pre>";
