@@ -23,6 +23,7 @@ foreach ($lines as $key=>$line){
     for ($i = 0, $iMax = strlen($line[0]); $i < $iMax; ++$i) {
         if (strpos($lines[$key][1], $lines[$key][0][$i]) !== false){
             $lines[$key]['result'] = $lines[$key][0][$i];
+            $lines[$key]['word'] = $line[0].$line[1];
         }
     }
 }
@@ -35,9 +36,28 @@ foreach ($lines as $line){
 }
 echo "Sum of all items: " . $sum . "<br>--------------------------<br>";
 
-
 // --------------------------------------------
 // Part 2
+$groupSum = 0;
+$groups = [];
+for($i=0, $iMax = count($lines); $i< $iMax; $i=$i+3){
+    $groups[] = [$lines[$i]['word'], $lines[$i+1]['word'], $lines[$i+2]['word']];
+}
+foreach ($groups as $key=>$group){
+    for ($i = 0, $iMax = strlen($group[0]); $i < $iMax; ++$i) {
+        if (strpos($group[1], $group[0][$i]) !== false && strpos($group[2], $group[0][$i]) !== false){
+            $groups[$key]['result'] = $group[0][$i];
+        }
+    }
+}
+foreach ($groups as $group){
+    foreach (array_keys($alphabet) as $letter){
+        if ($letter === $group['result']){
+            $groupSum += $alphabet[$letter];
+        }
+    }
+}
+echo "Sum of the group items: " . $groupSum;
 
 // --------------------------------------------
 // End
