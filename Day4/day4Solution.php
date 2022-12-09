@@ -1,6 +1,6 @@
 <?php
 echo "<pre>";
-echo "<h2>Day 3</h2>";
+echo "<h2>Day 4</h2>";
 // --------------------------------------------
 // Part 1
 $count = 0;
@@ -31,7 +31,6 @@ foreach ($lines as $key=>$line){
     }
 }
 echo "Number of partially overlap results: " . $partialCount . "<br>";
-//var_dump($lines);
 // --------------------------------------------
 // End
 echo "</pre>";
